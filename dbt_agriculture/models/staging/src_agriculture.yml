@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: "Raw layer — exact copies of source data ingested by NiFi"
+    tables:
+      - name: farm_yield
+        description: "Raw farm yield records loaded from CSV via NiFi GetFile + PutDatabaseRecord"
+        columns:
+          - name: Farm_ID
+            description: "Farm identifier (foreign key — repeats across rows)"
+            tests:
+              - not_null
+          - name: Yield
+            description: "Crop yield in tons"
+            tests:
+              - not_null
+      - name: sensor_readings
+        description: "Raw IoT sensor readings (Farm_ID + timestamp + moisture + ambient temperature)"

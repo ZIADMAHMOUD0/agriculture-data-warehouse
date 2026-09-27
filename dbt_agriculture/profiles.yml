@@ -1,0 +1,13 @@
+dbt_agriculture:
+  target: dev
+  outputs:
+    dev:
+      type: sqlserver
+      driver: 'ODBC Driver 17 for SQL Server'
+      server: host.docker.internal
+      port: 1433
+      database: AgricultureDWH
+      schema: stg
+      user: "{{ env_var('DBT_USER', 'dwh_admin') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      trust_cert: true

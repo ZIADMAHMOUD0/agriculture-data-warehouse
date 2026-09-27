@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+logs/
+airflow/logs/
+airflow/plugins/
+dbt_agriculture/target/
+dbt_agriculture/dbt_packages/
+dbt_agriculture/logs/
+dbt_agriculture/.user.yml
+data/incoming/*.csv
+data/archive/
